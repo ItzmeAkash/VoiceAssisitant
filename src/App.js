@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import AIResponse from './components/AIResponse';
 import Circle from './components/CircleWithGradient';
+import Display from './components/Display';
 
 function App() {
 
@@ -9,7 +10,8 @@ function App() {
   return (
     <div className="App">
 
-      <AIResponse />
+      {/* <AIResponse /> */}
+      <Display />
 
       {/* <Circle />
       <Circle />

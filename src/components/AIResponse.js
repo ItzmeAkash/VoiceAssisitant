@@ -105,7 +105,7 @@ const AIResponse = () => {
 
   // Function to send text to LLM
   const sendToLLM = (text) => {
-    fetch('https://api.supermilla.com/qad', {
+    fetch('http://127.0.0.1:5000/qad', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
