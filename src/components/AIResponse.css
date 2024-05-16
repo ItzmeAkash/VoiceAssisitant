@@ -1,0 +1,99 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100vh;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+
+.button {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #fde0d3, #ffb68b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  bottom: 50px;
+  animation: bubble 2s infinite;
+  box-shadow: 0 0 30px 10px rgba(241, 199, 144, 0.904);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.button.listening {
+  background: radial-gradient(circle at center, #ffffff, #efa575d9);
+  animation: pulse 1.5s infinite;
+}
+
+.button:hover {
+  box-shadow: 0 0 40px 15px rgba(241, 199, 144, 0.904);
+}
+
+.inner-mic {
+  color: #e14b00bd;
+  font-size: 20px;
+}
+
+.inner-mic:hover {
+  color: #e14b00;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes bubble {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+}
+
+.speech-animation {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding-bottom: 20px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #ff6347;
+  border-radius: 50%;
+  animation: speak 1.2s linear infinite;
+}
+
+.dot:nth-child(1) {
+  animation-delay: 0s;
+}
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes speak {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+}

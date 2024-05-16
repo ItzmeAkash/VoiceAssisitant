@@ -1,0 +1,177 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* src/App.css */
+.App {
+  text-align: center;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 20px;
+  font-size: 16px;
+}
+
+p {
+  font-size: 18px;
+}
+
+.container {
+  position: relative;
+  width: 300px; 
+  height: 300px;
+}
+
+.circle {
+  border-radius: 50%;
+  position: absolute;
+  animation-duration: 2s; 
+  animation-iteration-count: infinite;
+}
+
+.circle:nth-child(1) {
+  width: 300px;
+  height: 300px;
+  top: calc(50% - 150px);
+  left: calc(50% - 150px);
+  background: rgb(251 224 203);
+  box-shadow: rgb(255 228 223) 0px 0px 20px 10px;
+  animation-name: wave-animation-1;
+}
+
+.circle:nth-child(2) {
+  width: 260px;
+  height: 260px;
+  top: calc(50% - 130px);
+  left: calc(50% - 130px);
+  background: rgb(250 199 163);
+  box-shadow: rgb(246 147 115) 0px 0px 20px 10px;
+  animation-name: wave-animation-2;
+}
+
+.circle:nth-child(3) {
+  width: 220px;
+  height: 220px;
+  top: calc(50% - 110px);
+  left: calc(50% - 110px);
+  background: rgb(244 209 151);
+  box-shadow: rgb(245 148 122) 0px 0px 20px 10px;
+  animation-name: wave-animation-3;
+}
+
+.circle:nth-child(4) {
+  width: 180px;
+  height: 180px;
+  top: calc(50% - 90px);
+  left: calc(50% - 90px);
+  background: rgb(240 215 140);
+  box-shadow: rgb(249 146 98) 0px 0px 20px 10px;
+  animation-name: wave-animation-4;
+}
+
+.circle:nth-child(5) {
+  width: 140px;
+  height: 140px;
+  top: calc(50% - 70px);
+  left: calc(50% - 70px);
+  background: rgb(252 147 118 / 32%);
+  box-shadow: rgb(253 202 186) 0px 0px 20px 10px;
+  animation-name: wave-animation-5;
+}
+
+@keyframes wave-animation-1 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes wave-animation-2 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes wave-animation-3 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes wave-animation-4 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes wave-animation-5 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
