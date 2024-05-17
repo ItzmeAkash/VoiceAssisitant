@@ -19,8 +19,8 @@ const Display = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            // const response = await axios.post('https://api.supermilla.com/qad', inputData); 
-            const response = await axios.post('http://127.0.0.1:5000/qad', inputData); 
+            const response = await axios.post('https://api.supermilla.com/qad', inputData); 
+            // const response = await axios.post('http://127.0.0.1:5000/qad', inputData); 
             
             setResponseData(response.data);
         } catch (error) {
