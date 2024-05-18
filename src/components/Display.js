@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
+// import wavUrl from './output.wav';
 
 const Display = () => {
     const [responseData, setResponseData] = useState(null);
@@ -19,14 +20,20 @@ const Display = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('https://api.supermilla.com/qad', inputData); 
-            // const response = await axios.post('http://127.0.0.1:5000/qad', inputData); 
-            
+            const response = await axios.post('http://127.0.0.1:5000/qad', inputData); 
             setResponseData(response.data);
+            if (response.data.answer) {
+                await axios.post('http://127.0.0.1:8000/answer', { answer: response.data.answer });
+            }
         } catch (error) {
             console.error('Error:', error);
         }
     };
+
+    // const playAudio = () => {
+    //     const audio = new Audio(wavUrl);
+    //     audio.play();
+    // };
 
     return (
         <div>
@@ -61,7 +68,6 @@ const Display = () => {
                     >
                         <option value="english">English</option>
                         <option value="Hindi">Hindi</option>
-
                     </select>
                 </label>
                 <br />
@@ -70,8 +76,8 @@ const Display = () => {
             {responseData && (
                 <div>
                     <h2>Response from Backend</h2>
-                    <pre>{JSON.stringify(responseData.answer, null, 2)}</pre>
-                    {/* <p>{{ responseData}}</p> */}
+                    <p>{JSON.stringify(responseData.answer, null, 2)}</p>
+                    {/* <button onClick={playAudio}>Play Audio</button> */}
                 </div>
             )}
         </div>
@@ -79,3 +85,4 @@ const Display = () => {
 };
 
 export default Display;
+
