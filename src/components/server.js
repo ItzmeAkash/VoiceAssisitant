@@ -1,8 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { createClient } = require('@deepgram/sdk');
-const fs = require('fs');
+const fs = require('fs').promises; 
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 const port = 8000;
@@ -17,7 +18,7 @@ const getAudio = async (text) => {
     const response = await deepgram.speak.request(
       { text },
       {
-        model: 'aura-asteria-en',
+        model: 'aura-luna-en',
         encoding: 'linear16',
         container: 'wav',
       }
@@ -26,15 +27,15 @@ const getAudio = async (text) => {
     const stream = await response.getStream();
     const buffer = await getAudioBuffer(stream);
 
-    fs.writeFile('output.wav', buffer, (err) => {
-      if (err) {
-        console.error('Error writing audio to file:', err);
-      } else {
-        console.log('Audio file written to output.wav');
-      }
-    });
+    const filePath = path.join(__dirname, 'output.wav');
+    await fs.writeFile(filePath, buffer);
+
+    console.log('Audio file written to output.wav');
+    
+    return filePath;
   } catch (error) {
     console.error('Error generating audio:', error);
+    throw error;
   }
 };
 
@@ -59,8 +60,12 @@ const getAudioBuffer = async (response) => {
 app.post('/answer', async (req, res) => {
   const { answer } = req.body;
   if (answer) {
-    await getAudio(answer);
-    res.status(200).send('Audio generation in progress.');
+    try {
+      const filePath = await getAudio(answer);
+      res.status(200).sendFile(filePath);
+    } catch (error) {
+      res.status(500).send('Error generating audio');
+    }
   } else {
     res.status(400).send('No answer provided.');
   }

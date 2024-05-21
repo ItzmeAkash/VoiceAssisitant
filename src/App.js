@@ -1,15 +1,17 @@
 import Display from './components/Display';
+import AIResponse from './components/AIResponse';
 import SpeechToText from './components/SpeechToText';
-
 function App() {
 
 
   return (
     <div className="App">
 
-
-      <Display />
+      {/* <AIResponse/> */}
+      <Display/>
       <SpeechToText/>
+      
+
 
     </div>
   );
